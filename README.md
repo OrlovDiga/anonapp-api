@@ -1,1 +1,1 @@
-AnonApp in developed.
+AnonApp in development.
