@@ -7,10 +7,10 @@ spring:
       #ddl-auto: update
 
   datasource:
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/anonapp_db
-    username: movage
-    password: 1024
+    platform: DB
+    url: jdbc:postgresql://CONNECT_URL
+    username: USERNAME
+    password: PASSWORD
     driver-class-name: org.postgresql.Driver
 
 ---
