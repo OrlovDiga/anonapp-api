@@ -27,6 +27,6 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         userBuilder.add("username", authentication.getName());
         response.setContentType("application/json");
         response.getWriter().write(userBuilder.build().toString());
-        response.setStatus(302);
+        response.setStatus(200);
     }
 }

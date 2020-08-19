@@ -6,12 +6,7 @@ spring:
       ddl-auto: create-drop
       #ddl-auto: update
 
-  datasource:
-    platform: DB
-    url: jdbc:postgresql://CONNECT_URL
-    username: USERNAME
-    password: PASSWORD
-    driver-class-name: org.postgresql.Driver
+
 
 ---
 

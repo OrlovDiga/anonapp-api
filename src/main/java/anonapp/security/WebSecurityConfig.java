@@ -61,7 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().apply(new JSONLoginConfigurer<>())
                 .loginPage("/authenticate")
                 .successHandler(new CustomSuccessHandler())
-                .failureUrl("/mobile/app/sign-in?loginFailure=true")
+                //.failureUrl("/mobile/app/sign-in?loginFailure=true")
+                .failureHandler(new CustomFailureHandler())
                 .permitAll().and()
                 .rememberMe().rememberMeServices(tokenBasedRememberMeService);
     }
@@ -120,7 +121,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
                 throws AuthenticationException {
-            if (!"application/json".equals(request.getContentType())) {
+            System.out.println(request.getContentType());
+            if (!request.getContentType().contains("application/json")) {
+                System.out.println(request.getContentType());
                 // be aware that obtain Password and Username in UsernamePasswordAuthenticationFilter
                 // have a different method signature
                 return super.attemptAuthentication(request, response);
@@ -131,6 +134,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 String username = obtainUsername(obj);
                 String password = obtainPassword(obj);
+
+                System.out.println(username);
+                System.out.println(password);
 
                 UsernamePasswordAuthenticationToken authRequest =
                         new UsernamePasswordAuthenticationToken(username, password);
