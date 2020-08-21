@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author Orlov Diga
@@ -49,7 +51,7 @@ public class WebSocketSessionStore {
         chatSessions.remove(session.getId());
         chatSessions.remove(livingSession.getId());
 
-        searchSessions.add(session);
+        searchSessions.add(livingSession);
     }
 
     public void removeChatSession(String sessionId) {

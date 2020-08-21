@@ -29,9 +29,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 + "From: " + session.getPrincipal().getName()
                 + ". To: " + receiver.getPrincipal().getName());
         receiver.sendMessage(new TextMessage("got this for you: "+message.getPayload()));
-/*        LOG.info("New Simple Message Received with id of session: {} and username: {}",
-                session.getId(),
-                session.getPrincipal().getName());*/
+
     }
 
     @Override
