@@ -5,11 +5,11 @@ import java.io.Serializable;
 /**
  * @author Orlov Diga
  */
-public class ChatMessageDTO implements Serializable {
+public class ChatMessage implements Serializable {
 
     private String id;
     private String text;
-    private ChatUserDTO user;
+    private ChatUser user;
     private String image;
     private String video;
 
@@ -29,11 +29,11 @@ public class ChatMessageDTO implements Serializable {
         this.text = text;
     }
 
-    public ChatUserDTO getUser() {
+    public ChatUser getUser() {
         return user;
     }
 
-    public void setUser(ChatUserDTO user) {
+    public void setUser(ChatUser user) {
         this.user = user;
     }
 

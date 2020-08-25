@@ -15,9 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Orlov Diga
  */
 @Component
-public class WebSocketSessionStore {
+public class WebSocketSessionStorage {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WebSocketSessionStore.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WebSocketSessionStorage.class);
     private Map<String, WebSocketSession> chatSessions = new ConcurrentHashMap<>();
     private Set<WebSocketSession> searchSessions = new LinkedHashSet<>();
 

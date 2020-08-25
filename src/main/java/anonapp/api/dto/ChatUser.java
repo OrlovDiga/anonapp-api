@@ -5,16 +5,16 @@ import java.io.Serializable;
 /**
  * @author Orlov Diga
  */
-public class ChatUserDTO implements Serializable {
+public class ChatUser implements Serializable {
 
     private String uid;
     private String name;
     private String avatar;
 
-    public ChatUserDTO() {
+    public ChatUser() {
     }
 
-    public ChatUserDTO(String uid, String name, String avatar) {
+    public ChatUser(String uid, String name, String avatar) {
         this.uid = uid;
         this.name = name;
         this.avatar = avatar;
