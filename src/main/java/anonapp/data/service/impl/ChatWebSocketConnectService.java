@@ -1,4 +1,4 @@
-package anonapp.service.websocket;
+package anonapp.data.service.impl;
 
 import anonapp.api.dto.MessageType;
 import anonapp.api.dto.SocketMessage;
