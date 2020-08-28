@@ -1,6 +1,6 @@
 package anonapp.config;
 
-import anonapp.service.websocket.ChatWebSocketConnectService;
+import anonapp.data.service.impl.ChatWebSocketConnectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

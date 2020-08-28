@@ -1,6 +1,8 @@
-package anonapp.service.websocket;
+package anonapp.data.service.impl;
 
-import anonapp.util.WebSocketSessionStore;
+import anonapp.api.dto.MessageType;
+import anonapp.api.dto.SocketMessage;
+import anonapp.util.WebSocketSessionStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,11 @@ import java.io.IOException;
 @Service
 public class ChatWebSocketConnectService {
 
-    private WebSocketSessionStore socketSessionStore;
+    private WebSocketSessionStorage socketSessionStore;
     private static final Logger LOG = LoggerFactory.getLogger(ChatWebSocketConnectService.class);
 
     @Autowired
-    public ChatWebSocketConnectService(WebSocketSessionStore socketSessionStore) {
+    public ChatWebSocketConnectService(WebSocketSessionStorage socketSessionStore) {
         this.socketSessionStore = socketSessionStore;
     }
 
@@ -37,8 +39,10 @@ public class ChatWebSocketConnectService {
             socketSessionStore.addWebSocketSessionToChat(session1.getId(), session2);
             socketSessionStore.addWebSocketSessionToChat(session2.getId(), session1);
 
-            session1.sendMessage(new TextMessage("This is your interlocutor: " + session2.getPrincipal().getName()));
-            session2.sendMessage(new TextMessage("This is your interlocutor: " + session1.getPrincipal().getName()));
+            SocketMessage msg = new SocketMessage();
+            msg.setType(MessageType.CONNECT);
+            session1.sendMessage(new TextMessage(msg.toJson()));
+            session2.sendMessage(new TextMessage(msg.toJson()));
         }
     }
 }

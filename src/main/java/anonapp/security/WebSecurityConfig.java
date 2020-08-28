@@ -42,7 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private RememberMeAuthenticationProvider rememberMeAuthenticationProvider;
 
     @Autowired
-    public WebSecurityConfig(UserDetailsServiceImpl userDetailsServiceImpl, CustomTokenBasedRememberMeService tokenBasedRememberMeService, RememberMeAuthenticationProvider rememberMeAuthenticationProvider) {
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsServiceImpl,
+                             CustomTokenBasedRememberMeService tokenBasedRememberMeService,
+                             RememberMeAuthenticationProvider rememberMeAuthenticationProvider) {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
         this.tokenBasedRememberMeService = tokenBasedRememberMeService;
         this.rememberMeAuthenticationProvider = rememberMeAuthenticationProvider;
@@ -61,7 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().apply(new JSONLoginConfigurer<>())
                 .loginPage("/authenticate")
                 .successHandler(new CustomSuccessHandler())
-                //.failureUrl("/mobile/app/sign-in?loginFailure=true")
                 .failureHandler(new CustomFailureHandler())
                 .permitAll().and()
                 .rememberMe().rememberMeServices(tokenBasedRememberMeService);
@@ -124,8 +125,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             System.out.println(request.getContentType());
             if (!request.getContentType().contains("application/json")) {
                 System.out.println(request.getContentType());
-                // be aware that obtain Password and Username in UsernamePasswordAuthenticationFilter
-                // have a different method signature
+
                 return super.attemptAuthentication(request, response);
             }
 

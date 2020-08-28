@@ -6,12 +6,24 @@ spring:
       ddl-auto: create-drop
       #ddl-auto: update
 
-
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://db:5432/anonapp_db
+    username: movage
+    password: 1024
+    driver-class-name: org.postgresql.Driver
 
 ---
-
 spring:
   profiles: prod
+
+---
+resource:
+  prefix:
+    url: "http://localhost:8080/resources/"
+  path:
+    images: "src/main/resources/static/files/"
+
 
   #logging:
   #  level:

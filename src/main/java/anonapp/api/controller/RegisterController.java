@@ -3,7 +3,6 @@ package anonapp.api.controller;
 import anonapp.api.dto.UserDTO;
 import anonapp.data.service.impl.UserServiceImpl;
 import anonapp.domain.User;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,15 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegisterController {
 
     private UserServiceImpl userService;
-    private ModelMapper modelMapper;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     public RegisterController(UserServiceImpl userService,
-                              ModelMapper modelMapper,
                               PasswordEncoder passwordEncoder) {
         this.userService = userService;
-        this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
     }
 

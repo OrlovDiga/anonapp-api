@@ -1,4 +1,4 @@
-package anonapp.domain;
+package anonapp.domain.util;
 
 /**
  * @author Orlov Diga

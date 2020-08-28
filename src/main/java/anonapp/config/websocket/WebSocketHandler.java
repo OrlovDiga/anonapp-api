@@ -1,6 +1,8 @@
 package anonapp.config.websocket;
 
-import anonapp.util.WebSocketSessionStore;
+import anonapp.api.dto.MessageType;
+import anonapp.api.dto.SocketMessage;
+import anonapp.util.WebSocketSessionStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +21,24 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
     private static final Logger LOG = LoggerFactory.getLogger(WebSocketHandler.class);
 
     @Autowired
-    private WebSocketSessionStore webSocketStore;
+    private WebSocketSessionStorage webSocketStore;
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         WebSocketSession receiver = webSocketStore.getChatSessions().get(session.getId());
+        SocketMessage msg = SocketMessage.fromJson(message.getPayload().toString());
+
+        if (msg.getType() == MessageType.NEXT) {
+            webSocketStore.getChatSessions().remove(session.getId());
+            webSocketStore.getChatSessions().remove(receiver.getId());
+            webSocketStore.addSearchSession(receiver);
+            webSocketStore.addSearchSession(session);
+        }
+        receiver.sendMessage(new TextMessage(msg.toJson()));
 
         LOG.info("New message received: " + message.getPayload()
                 + "From: " + session.getPrincipal().getName()
                 + ". To: " + receiver.getPrincipal().getName());
-        receiver.sendMessage(new TextMessage("got this for you: "+message.getPayload()));
-/*        LOG.info("New Simple Message Received with id of session: {} and username: {}",
-                session.getId(),
-                session.getPrincipal().getName());*/
     }
 
     @Override

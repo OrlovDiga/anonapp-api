@@ -1,5 +1,6 @@
 package anonapp.domain;
 
+import anonapp.domain.util.Status;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,7 +32,7 @@ public class User implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Status status = anonapp.domain.Status.ACTIVE;
+    private Status status = Status.ACTIVE;
 
     private LocalDateTime created;
 

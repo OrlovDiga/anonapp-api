@@ -1,7 +1,5 @@
 package anonapp.api.dto;
 
-import anonapp.domain.User;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -17,8 +15,8 @@ public class UserDTO implements Serializable {
     @NotEmpty
     private String username;
 
+
     private String token;
-    private String roomId;
 
     @NotNull
     @NotEmpty
@@ -34,13 +32,6 @@ public class UserDTO implements Serializable {
         this.username = builder.username;
     }
 
-    public String getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
 
     public String getUsername() {
         return username;
