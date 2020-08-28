@@ -1,10 +1,10 @@
 version: '3'
 services:
   anonapp_backend:
-    container_name: anonapp_backend
+    container_name: anonapp_backend_development
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/anonapp_db
-    image: anonapp_backend
+    image: privdim/anonapp_backend_development:0.0.0
     build: ./
     links:
       - "db"
@@ -17,7 +17,7 @@ services:
     - /Users/macbook/Desktop/anonapp-backend/src/main/resources/static/files:/src/main/resources/static/files/
   db:
     container_name: db
-    image: db
+    image: privdim/db
     build: ./db
     ports:
       - 5432:5432
