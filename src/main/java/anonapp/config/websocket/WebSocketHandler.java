@@ -2,7 +2,7 @@ package anonapp.config.websocket;
 
 import anonapp.api.dto.MessageType;
 import anonapp.api.dto.SocketMessage;
-import anonapp.util.WebSocketSessionStorage;
+import anonapp.util.WebSocketSessionStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
     private static final Logger LOG = LoggerFactory.getLogger(WebSocketHandler.class);
 
     @Autowired
-    private WebSocketSessionStorage webSocketStore;
+    private WebSocketSessionStorageService webSocketStore;
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {

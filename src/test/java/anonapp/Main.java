@@ -7,7 +7,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Base64 ;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.json.JSONObject;
 import org.springframework.web.socket.TextMessage;
 
 import java.io.File;
