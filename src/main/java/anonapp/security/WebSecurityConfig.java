@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/socket/**").permitAll()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/reduction").permitAll()
                 .anyRequest().authenticated()
                 .and().apply(new JSONLoginConfigurer<>())
                 .loginPage("/authenticate")

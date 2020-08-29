@@ -8,6 +8,8 @@
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+src/main/resources/application.yml
+
 target/
 ### TortoiseGit template
 # Project-level settings

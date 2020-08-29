@@ -2,7 +2,7 @@ package anonapp.data.service.impl;
 
 import anonapp.api.dto.MessageType;
 import anonapp.api.dto.SocketMessage;
-import anonapp.util.WebSocketSessionStorage;
+import anonapp.util.WebSocketSessionStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ import java.io.IOException;
 @Service
 public class ChatWebSocketConnectService {
 
-    private WebSocketSessionStorage socketSessionStore;
+    private WebSocketSessionStorageService socketSessionStore;
     private static final Logger LOG = LoggerFactory.getLogger(ChatWebSocketConnectService.class);
 
     @Autowired
-    public ChatWebSocketConnectService(WebSocketSessionStorage socketSessionStore) {
+    public ChatWebSocketConnectService(WebSocketSessionStorageService socketSessionStore) {
         this.socketSessionStore = socketSessionStore;
     }
 
