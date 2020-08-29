@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 /**
  * @author Orlov Diga
  */
@@ -30,8 +32,8 @@ public class OptionsController {
     }
 
     @PostMapping(value = "changePswd")
-    public ResponseEntity<UserDTO> changePassword(@RequestBody ChangePasswordDTO userDTO) {
-        User user = userService.findByUsername(userDTO.getUsername());
+    public ResponseEntity<UserDTO> changePassword(@RequestBody ChangePasswordDTO userDTO, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
 
         if (userDTO.getNewPassword().equals(userDTO.getMatchingNewPassword())
          && user != null

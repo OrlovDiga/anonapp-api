@@ -8,21 +8,11 @@ import javax.validation.constraints.NotNull;
 public class ChangePasswordDTO {
 
     @NotNull
-    private String username;
-    @NotNull
     private String oldPassword;
     @NotNull
     private String newPassword;
     @NotNull
     private String matchingNewPassword;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getOldPassword() {
         return oldPassword;
