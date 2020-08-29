@@ -17,10 +17,12 @@ public class EmailServiceImpl implements EmailService  {
     private String noreplyAddress;
 
     private final JavaMailSender sender;
+    //private final SimpleMailMessage template;
 
     @Autowired
     public EmailServiceImpl(JavaMailSender sender) {
         this.sender = sender;
+        //this.template = template;
     }
 
     @Override
