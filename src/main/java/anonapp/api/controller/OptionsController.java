@@ -4,6 +4,8 @@ import anonapp.api.dto.ChangePasswordDTO;
 import anonapp.api.dto.UserDTO;
 import anonapp.data.service.impl.UserServiceImpl;
 import anonapp.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ import java.security.Principal;
 @RequestMapping(value = "/api/options")
 public class OptionsController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(OptionsController.class);
+
     private final UserServiceImpl userService;
     private final PasswordEncoder encoder;
 
@@ -37,7 +41,9 @@ public class OptionsController {
 
         if (userDTO.getNewPassword().equals(userDTO.getMatchingNewPassword())
          && user != null
-         && encoder.encode(userDTO.getOldPassword()).equals(user.getPassword())) {
+         && encoder.matches(userDTO.getOldPassword(), user.getPassword())) {
+            LOG.info("Password for {} was changed.", principal.getName());
+
             user.setPassword(encoder.encode(userDTO.getNewPassword()));
             user = userService.changePassword(user);
             return new ResponseEntity<>(
