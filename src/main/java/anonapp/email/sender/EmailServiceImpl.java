@@ -8,9 +8,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 /**
+ * The class provides a service for sending messages to mail.
+ *
  * @author Orlov Diga
  */
-@Service("EmailService")
+@Service("emailService")
 public class EmailServiceImpl implements EmailService  {
 
     @Value("${spring.mail.username}")
@@ -25,6 +27,14 @@ public class EmailServiceImpl implements EmailService  {
         //this.template = template;
     }
 
+
+    /**
+     * This method sends a simple text message to mail.
+     *
+     * @param to - email address to whom the message will be sent.
+     * @param subject - the main idea of ​​the message.
+     * @param text - message payload.
+     */
     @Override
     public void sendSimpleMessage(String to, String subject, String text) {
         try {

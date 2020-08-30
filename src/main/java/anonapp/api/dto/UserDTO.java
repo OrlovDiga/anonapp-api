@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
+ * This class represents a java object that will be deserialized from json.
+ *
  * @author Orlov Diga
  */
 public class UserDTO implements Serializable {

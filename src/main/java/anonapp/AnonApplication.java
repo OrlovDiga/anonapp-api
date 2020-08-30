@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
+ * The main class that launches the application.
+ *
  * @author Orlov Diga
  */
 @SpringBootApplication

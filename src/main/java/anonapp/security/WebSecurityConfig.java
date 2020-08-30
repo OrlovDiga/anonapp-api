@@ -17,7 +17,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractAu
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
@@ -30,6 +29,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
+ * This class provides main application security and routing for registration, authentication.
+ *
  * @author Orlov Diga
  */
 @Configuration
@@ -85,7 +86,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /** This is the a configurer that forces the JSONAuthenticationFilter.
+    /**
+     * This is the a configurer that forces the JSONAuthenticationFilter.
      * based on org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer
      */
     private class JSONLoginConfigurer<H extends HttpSecurityBuilder<H>> extends
@@ -124,7 +126,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
                 throws AuthenticationException {
             System.out.println(request.getContentType());
-            if (!request.getContentType().contains("application/json")) {
+            if (!request.getContentType().toLowerCase().contains("application/json")) {
                 System.out.println(request.getContentType());
 
                 return super.attemptAuthentication(request, response);

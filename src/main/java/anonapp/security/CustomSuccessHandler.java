@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * This class provides a handler for successful authentication.
+ *
  * @author Orlov Diga
  */
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
+
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,

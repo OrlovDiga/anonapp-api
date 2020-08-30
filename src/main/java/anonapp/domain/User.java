@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
+ * User entity class. This is the main class that provides the user.
+ *
  * @author Orlov Diga
  */
 @Entity

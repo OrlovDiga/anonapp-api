@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * This class providing a service for generating a password.
+ *
  * @author Orlov Diga
  */
 public final class PasswordGenerator {

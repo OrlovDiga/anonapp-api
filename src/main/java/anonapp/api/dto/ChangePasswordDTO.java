@@ -3,6 +3,9 @@ package anonapp.api.dto;
 import javax.validation.constraints.NotNull;
 
 /**
+ *
+ * This class represents a java object that will be deserialized from the password change request payload(json).
+ *
  * @author Orlov Diga
  */
 public class ChangePasswordDTO {

@@ -12,6 +12,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * This class that provides a service for storing sessions of active web socket sessions.
+ *
  * @author Orlov Diga
  */
 @Component
@@ -25,10 +27,23 @@ public class WebSocketSessionStorageService {
         this.searchSessions.add(session);
     }
 
+    /**
+     * This method is used when the web socket session is disconnected
+     * while (searching for a buddy) while in {@link searchSessions} set.
+     * This method provides removal of web socket connections from {@link searchSessions} set.
+     *
+     * @param session - user web socket session to delete.
+     */
     public boolean removeElementFromSearchSessions(WebSocketSession session) {
         return this.searchSessions.remove(session);
     }
 
+    /**
+     * This method return last web socket session and remove this contained in the set {@link searchSessions}
+     * and removes it from there.
+     *
+     * @return {@link WebSocketSession} session
+     */
     public WebSocketSession getFirstSearchSession() {
         Iterator<WebSocketSession> iterator = this.searchSessions.iterator();
         WebSocketSession session = null;
@@ -41,10 +56,27 @@ public class WebSocketSessionStorageService {
         return session;
     }
 
+    /**
+     * This method add {@link WebSocketSession} session to {@link chatSessions} map.
+     * Key - session id, value - the session itself.
+     *
+     * @param sessionId - id by {@link WebSocketSession}.
+     *
+     * @param session - active user session.
+     */
     public void addWebSocketSessionToChat(String sessionId, WebSocketSession session) {
         this.chatSessions.put(sessionId, session);
     }
 
+
+    /**
+     * This method is used when the user closes the web socket session.
+     * This method provides removal of two connected objects from {@link chatSessions} map
+     * when one of the sessions has disconnected.
+     * And adding the remaining session to {@link searchSessons} set.
+     *
+     * @param session user web socket session that disconnected.
+     */
     public void disconnectSessionFromChat(WebSocketSession session) {
         WebSocketSession livingSession = chatSessions.get(session.getId());
 
@@ -52,10 +84,6 @@ public class WebSocketSessionStorageService {
         chatSessions.remove(livingSession.getId());
 
         searchSessions.add(livingSession);
-    }
-
-    public void removeChatSession(String sessionId) {
-        this.chatSessions.remove(sessionId);
     }
 
     public Map<String, WebSocketSession> getChatSessions() {

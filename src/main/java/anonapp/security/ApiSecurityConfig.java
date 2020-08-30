@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.rememberme.RememberMeAuth
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 /**
+ * This class that provides application security using a token.
+ *
  * @author Orlov Diga
  */
 @Configuration
@@ -44,16 +46,23 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(rememberMeAuthenticationProvider());
     }
+
     @Bean
     public RememberMeAuthenticationFilter rememberMeAuthenticationFilter() throws Exception{
         return new RememberMeAuthenticationFilter(authenticationManager(), tokenBasedRememberMeService());
     }
-    @Bean public CustomTokenBasedRememberMeService tokenBasedRememberMeService(){
-        CustomTokenBasedRememberMeService service = new CustomTokenBasedRememberMeService(tokenKey, userDetailsServiceImpl);
+
+    @Bean
+    public CustomTokenBasedRememberMeService tokenBasedRememberMeService(){
+        CustomTokenBasedRememberMeService service =
+                new CustomTokenBasedRememberMeService(tokenKey, userDetailsServiceImpl);
+
         service.setAlwaysRemember(true);
         service.setCookieName("token");
+
         return service;
     }
+
     @Bean
     RememberMeAuthenticationProvider rememberMeAuthenticationProvider(){
         return new RememberMeAuthenticationProvider(tokenKey);

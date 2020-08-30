@@ -9,6 +9,8 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
 /**
+ * This class provides the basic configuration for a web socket connection.
+ *
  * @author Orlov Diga
  */
 @Configuration
@@ -29,6 +31,9 @@ public class WebSocketConfig implements WebSocketConfigurer {
         return container;
     }
 
+    /**
+     * This method provides registry configuration for a web socket connections.
+     */
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(handler, "/api/socket").setAllowedOrigins("*");

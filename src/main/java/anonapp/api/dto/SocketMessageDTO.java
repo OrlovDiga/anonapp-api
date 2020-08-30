@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 /**
+ * This class represents a java object that will be deserialized from json.
+ *
  * @author Orlov Diga
  */
 public class SocketMessageDTO {

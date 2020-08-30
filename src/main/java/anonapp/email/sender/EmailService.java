@@ -1,6 +1,8 @@
 package anonapp.email.sender;
 
 /**
+ * Interface providing sending messages to mail.
+ *
  * @author Orlov Diga
  */
 public interface EmailService {

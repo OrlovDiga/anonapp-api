@@ -1,6 +1,8 @@
 package anonapp.api.dto;
 
 /**
+ * This class represents a java object that will be deserialized from json.
+ *
  * @author Orlov Diga
  */
 public class MailDTO {
