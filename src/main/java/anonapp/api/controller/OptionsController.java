@@ -52,7 +52,7 @@ public class OptionsController {
      * If the password change was successful, the status code {@link HttpStatus} OK(200)
      * is stored in the header of this, otherwise BED_REQUEST(400).
      */
-    @PostMapping(value = "changePswd")
+    @PostMapping(value = "/changePswd")
     public ResponseEntity<UserDTO> changePassword(@RequestBody ChangePasswordDTO userDTO,
                                                   @AuthenticationPrincipal User user) {
 
