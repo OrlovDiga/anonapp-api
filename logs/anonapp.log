@@ -60,3 +60,18 @@
 2020-08-30 13:49:49.975  INFO 77109 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2020-08-30 13:49:49.989  INFO 77109 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-08-30 13:49:49.992  INFO 77109 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-08-30 21:38:23.786  INFO 77012 --- [main] anonapp.AnonApplication                  : Starting AnonApplication on privalov.local with PID 77012 (/Users/macbook/Desktop/anonapp-backend/target/classes started by macbook in /Users/macbook/Desktop/anonapp-backend)
+2020-08-30 21:38:23.797  INFO 77012 --- [main] anonapp.AnonApplication                  : No active profile set, falling back to default profiles: default
+2020-08-30 21:38:27.738  INFO 77012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-30 21:38:28.232  INFO 77012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 319ms. Found 1 JPA repository interfaces.
+2020-08-30 21:38:29.552  INFO 77012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-08-30 21:38:29.565  INFO 77012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-30 21:38:29.566  INFO 77012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-08-30 21:38:29.675  INFO 77012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-30 21:38:29.676  INFO 77012 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5626 ms
+2020-08-30 21:38:29.803  WARN 77012 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-30 21:38:30.114  INFO 77012 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-30 21:38:30.282  INFO 77012 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-08-30 21:38:30.664  INFO 77012 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-30 21:38:30.864  INFO 77012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-30 21:38:31.110  INFO 77012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

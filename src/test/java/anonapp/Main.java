@@ -51,7 +51,7 @@ public class Main {
 
         System.out.println(msg.getType());
 */
-        File file = new File("/Users/macbook/Desktop/29.jpg");
+   /*     File file = new File("/Users/macbook/Desktop/29.jpg");
 
         byte[] fileContent = Files.readAllBytes(file.toPath());
         //byte[] row = Base64.encodeBase64(fileContent);
@@ -62,7 +62,7 @@ public class Main {
         fileDTO.setExtension("jpg");
         String res = fileDTO.encodeAndSaveFile();
 
-        System.out.println(res);
+        System.out.println(res);*/
 
     }
 }
