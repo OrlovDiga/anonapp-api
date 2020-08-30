@@ -1,13 +1,8 @@
 package anonapp;
 
-import anonapp.api.dto.ChatMessage;
 import anonapp.api.dto.FileDTO;
-import anonapp.api.dto.SocketMessage;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Base64 ;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.springframework.web.socket.TextMessage;
 
 import java.io.File;
 import java.io.IOException;

@@ -7,14 +7,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * @author Orlov Diga
  */
-public class SocketMessage {
+public class SocketMessageDTO {
 
     private MessageType type;
-    private ChatMessage chatMessage;
+    private ChatMessageDTO chatMessage;
 
-    public static SocketMessage fromJson(String socketMsg) throws JsonProcessingException {
+    public static SocketMessageDTO fromJson(String socketMsg) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(socketMsg, SocketMessage.class);
+        return mapper.readValue(socketMsg, SocketMessageDTO.class);
     }
 
     public String toJson() throws JsonProcessingException {
@@ -30,11 +30,11 @@ public class SocketMessage {
         this.type = type;
     }
 
-    public ChatMessage getChatMessage() {
+    public ChatMessageDTO getChatMessage() {
         return chatMessage;
     }
 
-    public void setChatMessage(ChatMessage chatMessage) {
+    public void setChatMessage(ChatMessageDTO chatMessage) {
         this.chatMessage = chatMessage;
     }
 }

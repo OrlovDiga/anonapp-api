@@ -1,7 +1,7 @@
 package anonapp.data.service.impl;
 
 import anonapp.api.dto.MessageType;
-import anonapp.api.dto.SocketMessage;
+import anonapp.api.dto.SocketMessageDTO;
 import anonapp.util.WebSocketSessionStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +39,7 @@ public class ChatWebSocketConnectService {
             socketSessionStore.addWebSocketSessionToChat(session1.getId(), session2);
             socketSessionStore.addWebSocketSessionToChat(session2.getId(), session1);
 
-            SocketMessage msg = new SocketMessage();
+            SocketMessageDTO msg = new SocketMessageDTO();
             msg.setType(MessageType.CONNECT);
             session1.sendMessage(new TextMessage(msg.toJson()));
             session2.sendMessage(new TextMessage(msg.toJson()));

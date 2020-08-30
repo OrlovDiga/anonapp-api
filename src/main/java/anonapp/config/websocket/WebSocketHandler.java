@@ -1,7 +1,7 @@
 package anonapp.config.websocket;
 
 import anonapp.api.dto.MessageType;
-import anonapp.api.dto.SocketMessage;
+import anonapp.api.dto.SocketMessageDTO;
 import anonapp.util.WebSocketSessionStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         WebSocketSession receiver = webSocketStore.getChatSessions().get(session.getId());
-        SocketMessage msg = SocketMessage.fromJson(message.getPayload().toString());
+        SocketMessageDTO msg = SocketMessageDTO.fromJson(message.getPayload().toString());
 
         if (msg.getType() == MessageType.NEXT) {
             webSocketStore.getChatSessions().remove(session.getId());

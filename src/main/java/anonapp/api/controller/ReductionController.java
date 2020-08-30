@@ -1,7 +1,6 @@
 package anonapp.api.controller;
 
 import anonapp.api.dto.MailDTO;
-import anonapp.data.service.UserService;
 import anonapp.data.service.impl.UserServiceImpl;
 import anonapp.domain.User;
 import anonapp.email.sender.EmailServiceImpl;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * This class provides service for changing forgot user password.
+ *
  * @author Orlov Diga
  */
 @RestController
@@ -44,6 +45,19 @@ public class ReductionController {
                 .build();
     }
 
+    /**
+     * This method is needed to change the user's password when the user has forgotten the password.
+     * Change user password field in the database.
+     *
+     * @param mailDTO this param has annotation  {@link RequestBody @RequestMapping},
+     *               which means that this param will be deserialization from request json data.
+     *
+     * @return {@link org.springframework.http.ResponseEntity} with a specific status code.
+     * if status code {@link org.springframework.http.HttpStatus} is OK(200),
+     * it means that the password change was successful.
+     * if status code {@link org.springframework.http.HttpStatus} is BED_REQUEST(400),
+     * it means password change was failed.
+     */
     @PostMapping
     public void changePassword(@RequestBody MailDTO mailDTO) {
         if (!mailDTO.getMail().isEmpty()) {
