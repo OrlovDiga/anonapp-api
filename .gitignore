@@ -9,6 +9,7 @@
 .Trash-*
 
 src/main/resources/application.yml
+logs/*.log
 
 target/
 ### TortoiseGit template
