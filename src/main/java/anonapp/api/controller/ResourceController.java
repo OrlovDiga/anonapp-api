@@ -37,7 +37,7 @@ public class ResourceController {
      */
     @PostMapping
     public String uploadPhoto(@RequestBody FileDTO fileDTO) throws IOException {
-        String name = fileDTO.encodeAndSaveFile();
+        String name = fileDTO.encodeAndSaveFile(contentPath);
         LOG.info("Load file with name {}", name);
         return urlPrefix + name;
     }

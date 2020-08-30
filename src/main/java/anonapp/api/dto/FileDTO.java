@@ -1,6 +1,7 @@
 package anonapp.api.dto;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,12 +16,17 @@ import java.util.UUID;
 public class FileDTO {
     private String extension;
     private String data;
-    private static final String CONTENT_PATH = "src/main/resources/static/files/";
 
-    public String encodeAndSaveFile() throws IOException {
+    /**
+     * This method is for decoding and saving the file to the host.
+     *
+     * @param path to the directory where to save the file.
+     * @return {@link String} saved file name.
+     */
+    public String encodeAndSaveFile(String path) throws IOException {
         byte[] encoded = Base64.decodeBase64(data);
         System.out.println("extension = " + extension);
-        File file = new File(CONTENT_PATH + UUID.randomUUID() + extension);
+        File file = new File(path + UUID.randomUUID() + extension);
 
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(encoded);
