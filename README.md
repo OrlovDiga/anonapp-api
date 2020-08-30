@@ -3,6 +3,64 @@
 
 AnonAppp Api is a backend application for an anonymous restful chat.
 
+## Installation
+
+To use this repository, you need to download it.
+Next, you need to create an `application.yml` in _src/main/resource/_ and add the following configuration there:
+
+Application.yml
+```
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      #ddl-auto: update
+
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/YOUR_DATABASE_NAME
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    driver-class-name: org.postgresql.Driver
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: YOUR_GMAIL_ADDRESS
+    password: YOUR_APP_PASSWORD
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+logging:
+  file: logs/anonapp.log
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+
+resource:
+  prefix:
+    url: "http://localhost:8080/resources/"
+  path:
+    images: "src/main/resources/static/files/"
+
+```
+__P.S.__ Fully uppercase values ​​are not allowed, you need to replace them with existing values.
+
+
+In order to find out how to get an app password for gmail, go to the [following link](https://support.google.com/accounts/answer/185833).
+
+
+You can change `application.yml` to your liking. For example, use a config to connect to another database.
+
+
 ## Usage
 
 This application has multiple entry points:
