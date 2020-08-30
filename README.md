@@ -1,7 +1,7 @@
 # AnonApp Api
 [![Build Status](https://travis-ci.com/OrlovDiga/anonapp-api.svg?branch=master)](https://travis-ci.com/OrlovDiga/anonapp-api)
 
-AnonAppp Api is a backend application for an anonymous restful chat.
+AnonAppp Api is a backend application for an anonymous restful chat, on web sockets.
 
 ## Installation
 
