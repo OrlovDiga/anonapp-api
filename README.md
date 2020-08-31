@@ -112,9 +112,8 @@ This application has multiple entry points:
  ```
 #### */resources/0b0800b2-f4ba-4df2-a018-753a18c86c69.jpg*
 `GET`
- ```
 And you get the file.
- ```
+
 <br/>
 <br/>
 ### Routes that require a token in the request header to access:
