@@ -79,6 +79,7 @@ This application has multiple entry points:
 
 <details><summary>Request examples: </summary>
 
+### Public routes:
 ***
 #### */register*
 
@@ -109,6 +110,44 @@ This application has multiple entry points:
 "data": "BYTE_ARR_TO_BASE_64_ENCODE"
 }
  ```
+***
+### Routes that require a token in the request header to access:
+***
+#### */api/socket*
+`WS` - web socket connection
+
+An example of connection is presented in [Dart language](https://flutter.dev/docs/cookbook/networking/web-sockets):
+
+```
+IOWebSocketChannel channel = IOWebSocketChannel.connect(
+    Uri(scheme: "ws", host: "localhost", port: 8080, path: "/api/socket"),
+    headers: {'token': 'something token'}
+    );
+```
+***
+#### _/api/check_
+`POST`
+
+The body of this request must be empty, and the header must contain token.
+
+***
+
+#### _/api/home/likes_
+`POST`
+
+```
+This method is in development ...
+```
+***
+#### _/api/options/changePswd_
+`POST`
+```
+{
+"oldPassword": "1234",
+"newPassword": "1111",
+"matchingNewPassword": "1111"
+}
+```
 ***
 
 </details>
