@@ -77,6 +77,42 @@ This application has multiple entry points:
 * POST */api/home/likes* - get a friend list.
 * POST */api/options/changePswd* - user self-change of password.
 
+<details><summary>Request examples: </summary>
+
+***
+#### */register*
+
+ `POST`
+```
+{
+"username": "qwerty@gmail.com",
+"password": "1234",
+"matchingPassword": "1234"
+}
+ ```
+***
+
+#### */reduction*
+`POST`
+ ```
+{
+"username": "qwerty@gmail.com",
+}
+ ```
+***
+
+#### */resources*
+`POST`
+ ```
+{
+"extension": ".jpeg",
+"data": "BYTE_ARR_TO_BASE_64_ENCODE"
+}
+ ```
+***
+
+</details>
+
 ## Support
 
 Means of communication with me:
