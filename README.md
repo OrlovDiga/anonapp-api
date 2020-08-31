@@ -116,8 +116,11 @@ And you get the file.
 
 <br/>
 <br/>
+
 ### Routes that require a token in the request header to access:
+
 ***
+
 #### */api/socket*
 `WS` - web socket connection
 
