@@ -110,7 +110,6 @@ This application has multiple entry points:
 "data": "BYTE_ARR_TO_BASE_64_ENCODE"
 }
  ```
-***
 ### Routes that require a token in the request header to access:
 ***
 #### */api/socket*
